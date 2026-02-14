@@ -11,25 +11,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      padding: 20px 0;
       color: #333;
     }
 
     .container {
       background: #fff;
       border-radius: 20px;
-      width: 90%;
-      max-width: 360px;
-      min-height: 420px;
-      padding: 24px;
+      width: 95%;
+      max-width: 380px;
+      max-height: 90vh;
+      padding: 20px;
       text-align: center;
       position: relative;
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      overflow-y: auto;
     }
 
     .envelope {
-      font-size: 100px;
+      font-size: 90px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -45,18 +47,19 @@
     h2 {
       margin-top: 10px;
       color: #ff4f7a;
+      font-size: 24px;
     }
 
     .letter {
       margin-top: 10px;
-      font-size: 18px;
-      line-height: 1.5;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     .next-tab {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
+      bottom: 12px;
+      right: 12px;
       background: #ff4f7a;
       color: white;
       border-radius: 50%;
@@ -88,7 +91,8 @@
         <p>De verdad lo siento por los problemas que causé, debí estar más atento, y aunque no fueron mi intención, entiendo cómo estuviste. De verdad no voy a permitir que vuelva a ocurrir.</p>
         <p>Y aunque no nos veamos mucho, te aseguro que algún día podremos vernos siempre que podamos y podremos por fin darnos todo el cariño y amor que nos deseamos cada día. No sé si será perfecto, pero voy a apuntar a que sea paz y tranquilidad para ambos, cosa de tener una relación sana.</p>
         <p>Gracias por estar conmigo, Nathy, por tu cariño, tu paciencia y tu amor. Lo conservaré siempre en mi corazón, pase lo que pase con nosotros.</p>
-        <p>Espero que este 14F sea uno de muchos más juntos.</p>
+        <p>💗Espero que este 14F sea uno de muchos más juntos💗</p>
+        <p><strong>***Ahora presiona la cosita para avanzar que está abajito amor***</strong></p>
       </div>
 
       <div id="nextBtn" class="next-tab">➜</div>
@@ -98,11 +102,11 @@
     <div id="carta2" class="hidden">
       <h2>💖</h2>
       <div class="letter">
-        <p>yyy bueno un poquito de presionar la flechita no esta mal nshsjnajn</p>
+        <p>yyy bueno un poquito de presionar la flechita no está mal nshsjnajn</p>
         <p>ahoraaa sii</p>
         <p>Muchas gracias por todo, mi amor…</p>
-        <p>Te amo conn todoo mi vidaa.</p>
-        <p>💘connn demasiado amorr, tu hombree💘</p>
+        <p>Te amo con todo mi vida.</p>
+        <p>💘 con demasiado amor, tu hombre 💘</p>
       </div>
     </div>
 
@@ -117,21 +121,19 @@
 
     let intentos = 0;
 
-    // Abrir sobre
     sobre.addEventListener("click", () => {
       sobre.classList.add("hidden");
       textoSobre.classList.add("hidden");
       carta1.classList.remove("hidden");
     });
 
-    // Botón que se escapa
     nextBtn.addEventListener("click", () => {
       intentos++;
 
       if (intentos < 4) {
         const container = document.querySelector(".container");
-        const maxX = container.clientWidth - 50;
-        const maxY = container.clientHeight - 50;
+        const maxX = container.clientWidth - 60;
+        const maxY = container.clientHeight - 60;
 
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
@@ -139,7 +141,6 @@
         nextBtn.style.left = x + "px";
         nextBtn.style.top = y + "px";
       } else {
-        // A la 4ta deja pasar
         carta1.classList.add("hidden");
         carta2.classList.remove("hidden");
         nextBtn.classList.add("hidden");
